@@ -76,7 +76,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4693f0a6f7ddbb948af3d8f672e9a4ac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bullet: {fileID: 525607670663313610, guid: fd99d04999afcd6409a715e30e896052, type: 3}
+  bullet: {fileID: 1987739378594170839, guid: fd99d04999afcd6409a715e30e896052, type: 3}
   bulletAnchor: {fileID: 6064473499904828163}
   playerRb: {fileID: 5591834823552186684}
   mainCam: {fileID: 0}

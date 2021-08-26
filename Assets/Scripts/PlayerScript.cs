@@ -21,12 +21,8 @@ public class PlayerScript : MonoBehaviour
     private float sideInput;
     private float forwardInput;
 
-    void Start()
-    {
-        
-    }
 
-    void FixedUpdate()
+    void Update()
     {
         sideInput = Input.GetAxis("Horizontal");
         forwardInput = Input.GetAxis("Vertical");
