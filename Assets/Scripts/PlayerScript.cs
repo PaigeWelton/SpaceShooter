@@ -5,14 +5,18 @@ using UnityEngine;
 
 public class PlayerScript : MonoBehaviour
 {
+    public GameObject mousePosMarker;
 
     [SerializeField]
     private Rigidbody playerRb;
 
-    [SerializeField] private float thrust;
-    [SerializeField] private float turnSpeed;
+    private float thrust = 200.0f;
+    private float boostSpeed = 300.0f;
 
-    private float turnInput;
+    [SerializeField] private Camera mainCam;
+    private Vector3 mousePos;
+
+    private float sideInput;
     private float forwardInput;
 
     void Start()
@@ -22,10 +26,21 @@ public class PlayerScript : MonoBehaviour
 
     void FixedUpdate()
     {
-        turnInput = Input.GetAxis("Horizontal");
+        sideInput = Input.GetAxis("Horizontal");
         forwardInput = Input.GetAxis("Vertical");
 
-        transform.Rotate(Vector3.forward, Time.deltaTime * turnSpeed * turnInput);
-        playerRb.AddRelativeForce(Vector3.up * forwardInput * thrust, ForceMode.Force);
+        //rotate to look at mouse
+        mousePos = mainCam.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, 10.0f));
+        mousePosMarker.transform.position = mousePos;
+        transform.LookAt(mousePos, Vector3.back);
+
+        // player movement
+        playerRb.AddRelativeForce(Vector3.forward * forwardInput * thrust, ForceMode.Force);
+        playerRb.AddRelativeForce(Vector3.right * sideInput * thrust, ForceMode.Force);
+
+        if (Input.GetKeyDown(KeyCode.LeftShift))
+        {
+            playerRb.AddRelativeForce(Vector3.forward * boostSpeed, ForceMode.Impulse);
+        }
     }
 }
