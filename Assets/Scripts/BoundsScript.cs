@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class BoundsScript : MonoBehaviour
 {
-    private float maxPosX = 9.0f;
-    private float maxPosY = 5.0f;
+    private float maxPosX = 10.0f;
+    private float maxPosY = 6.0f;
 
     // Update is called once per frame
     void Update()
