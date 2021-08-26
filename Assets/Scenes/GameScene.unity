@@ -506,10 +506,6 @@ PrefabInstance:
       propertyPath: mainCam
       value: 
       objectReference: {fileID: 963194227}
-    - target: {fileID: 1288892484, guid: 236d3fb0d5d43b94d9478146b3c3bc60, type: 3}
-      propertyPath: mousePosMarker
-      value: 
-      objectReference: {fileID: 0}
     - target: {fileID: 619389344007089928, guid: 236d3fb0d5d43b94d9478146b3c3bc60, type: 3}
       propertyPath: m_Name
       value: Player

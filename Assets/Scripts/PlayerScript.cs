@@ -1,10 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
+using TreeEditor;
 using UnityEngine;
 
 
 public class PlayerScript : MonoBehaviour
 {
+    public GameObject bullet;
+    [SerializeField] private GameObject bulletAnchor;
+
     [SerializeField]
     private Rigidbody playerRb;
 
@@ -39,5 +43,17 @@ public class PlayerScript : MonoBehaviour
         {
             playerRb.AddRelativeForce(Vector3.forward * boostSpeed, ForceMode.Impulse);
         }
+
+        if (Input.GetMouseButtonDown(0))
+        {
+            FireShot();
+        }
+    }
+
+    private void FireShot()
+    {
+        Vector3 relativePos = mousePos - transform.position;
+        Quaternion fireRotation = Quaternion.LookRotation(relativePos, Vector3.right);
+        Instantiate(bullet, bulletAnchor.transform.position, fireRotation);
     }
 }
