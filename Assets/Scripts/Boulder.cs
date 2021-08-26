@@ -5,22 +5,22 @@ using UnityEngine.UIElements;
 
 public class Boulder : MonoBehaviour
 {
-    private float maxSpeed = 8.0f;
-    private float minSpeed = 0.5f;
+    protected float maxSpeed = 1.0f;
+    protected float minSpeed = 0.25f;
 
-    private float setSpeed;
+    public float setSpeed;
 
-    private float movementAngle = 1.0f;
-    private Vector3 translateAngle;
+    protected float movementAngle = 10.0f;
+    protected Vector3 translateAngle;
 
-    private float rotationAngle = 1.0f;
-    private float xRotAngle;
-    private float yRotAngle;
-    private float zRotAngle;
-    private Vector3 rotVector;
-    private float rotationSpeed;
-    private float maxRotSpeed = 30.0f;
-    private float minRotSpeed = 10.0f;
+    protected float rotationAngle = 1.0f;
+    protected float xRotAngle;
+    protected float yRotAngle;
+    protected float zRotAngle;
+    protected Vector3 rotVector;
+    protected float rotationSpeed;
+    protected float maxRotSpeed = 60.0f;
+    protected float minRotSpeed = 10.0f;
 
     // Start is called before the first frame update
     void Awake()
@@ -38,13 +38,13 @@ public class Boulder : MonoBehaviour
         transform.Rotate(rotVector * rotationSpeed * Time.deltaTime);
     }
 
-    private float SetSpeed()
+    protected float SetSpeed()
     {
         setSpeed = Random.Range(minSpeed, maxSpeed);
         return setSpeed;
     }
 
-    private Vector3 SetAngle()
+    protected Vector3 SetAngle()
     {
         float xAngle = Random.Range(-movementAngle, movementAngle);
         float yAngle = Random.Range(-movementAngle, movementAngle);
@@ -52,7 +52,7 @@ public class Boulder : MonoBehaviour
         return translateAngle;
     }
 
-    private void SetRotationAngles()
+    protected void SetRotationAngles()
     {
         xRotAngle = Random.Range(-rotationAngle, rotationAngle);
         yRotAngle = Random.Range(-rotationAngle, rotationAngle);
@@ -60,7 +60,7 @@ public class Boulder : MonoBehaviour
         rotVector = new Vector3(xRotAngle, yRotAngle, zRotAngle);
     }
 
-    private float SetRotationSpeed()
+    protected float SetRotationSpeed()
     {
         if (setSpeed > maxSpeed/2)
         {
