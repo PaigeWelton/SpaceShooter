@@ -5,8 +5,6 @@ using UnityEngine;
 
 public class PlayerScript : MonoBehaviour
 {
-    public GameObject mousePosMarker;
-
     [SerializeField]
     private Rigidbody playerRb;
 
@@ -31,7 +29,6 @@ public class PlayerScript : MonoBehaviour
 
         //rotate to look at mouse
         mousePos = mainCam.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, 10.0f));
-        mousePosMarker.transform.position = mousePos;
         transform.LookAt(mousePos, Vector3.back);
 
         // player movement
