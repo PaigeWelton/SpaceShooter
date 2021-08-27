@@ -5,10 +5,17 @@ using UnityEngine.UIElements;
 
 public class Boulder : MonoBehaviour
 {
-    protected float maxSpeed = 1.0f;
-    protected float minSpeed = 0.25f;
+    [SerializeField] private GameObject littleBoulder;
+    private int maxLittleBoulders = 5;
+    private int minLittleBoulders = 1;
 
-    public float setSpeed;
+    protected GameManager gameManager;
+    private int scoreValue = 10;
+
+    protected float maxSpeed = 1.0f;
+    protected float minSpeed = 0.1f;
+
+    protected float setSpeed;
 
     protected float movementAngle = 10.0f;
     protected Vector3 translateAngle;
@@ -25,6 +32,8 @@ public class Boulder : MonoBehaviour
     // Start is called before the first frame update
     void Awake()
     {
+        gameManager = GameObject.FindGameObjectWithTag("GameController").GetComponent<GameManager>();
+
         SetAngle();
         SetSpeed();
         SetRotationAngles();
@@ -73,5 +82,37 @@ public class Boulder : MonoBehaviour
         }
 
         return rotationSpeed;
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("FiredShot"))
+        {
+            Destroy(other.gameObject);
+            DestroyBoulder();
+        }
+
+        if (other.CompareTag("Player"))
+        {
+            gameManager.RemoveLife(1);
+            DestroyBoulder();
+        }
+    }
+
+    public virtual void DestroyBoulder()
+    {
+        gameManager.AddScore(scoreValue);
+        CreateLittleBoulders();
+        Destroy(gameObject);
+    }
+
+    protected virtual void CreateLittleBoulders()
+    {
+        int bouldersToCreate = Random.Range(minLittleBoulders, maxLittleBoulders);
+
+        for (int i = 0; i < bouldersToCreate; i++)
+        {
+            Instantiate(littleBoulder, transform.position, littleBoulder.transform.rotation);
+        }
     }
 }

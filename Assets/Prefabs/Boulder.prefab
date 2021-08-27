@@ -13,9 +13,10 @@ GameObject:
   - component: {fileID: 6086333177965191698}
   - component: {fileID: 8095235730141244616}
   - component: {fileID: 6196286821523864488}
+  - component: {fileID: 8561575781670820914}
   m_Layer: 0
   m_Name: Boulder
-  m_TagString: Untagged
+  m_TagString: Boulder
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
@@ -107,3 +108,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cd6409034ab53b7499f82e533468639e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  littleBoulder: {fileID: 6062755256691881170, guid: 20ff20d8dc787dc4dbce11373c2fe2c0, type: 3}
+--- !u!135 &8561575781670820914
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6062755256691881170}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 1.45
+  m_Center: {x: 0, y: -0.000000059604645, z: 0}
