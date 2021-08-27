@@ -5,7 +5,6 @@ using UnityEngine;
 //INHERITANCE
 public class LittleBoulder : Boulder
 {
-    private int scoreValue = 50;
 
     // Start is called before the first frame update
     void Awake()
@@ -19,7 +18,9 @@ public class LittleBoulder : Boulder
         SetAngle();
         SetSpeed();
         SetRotationAngles();
-        SetRotationSpeed();
+        SetRotationSpeed(); 
+
+        scoreValue = 50;
     }
 
     // Update is called once per frame

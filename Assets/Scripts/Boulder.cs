@@ -10,7 +10,7 @@ public class Boulder : MonoBehaviour
     private int minLittleBoulders = 1;
 
     protected GameManager gameManager;
-    private int scoreValue = 10;
+    protected int scoreValue = 10;
     protected PlayerScript player;
 
     protected float maxSpeed = 1.0f;
