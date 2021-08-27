@@ -21,6 +21,11 @@ public class PlayerScript : MonoBehaviour
     private float sideInput;
     private float forwardInput;
 
+    [SerializeField] private GameManager gameManager;
+    private bool isShielded = false;
+    [SerializeField] private GameObject shield;
+    private float shieldActivationTime = 5.0f;
+
 
     void Update()
     {
@@ -51,5 +56,25 @@ public class PlayerScript : MonoBehaviour
         Vector3 relativePos = mousePos - transform.position;
         Quaternion fireRotation = Quaternion.LookRotation(relativePos, Vector3.right);
         Instantiate(bullet, bulletAnchor.transform.position, fireRotation);
+    }
+
+    public void DamageDealt()
+    {
+        if (!isShielded)
+            gameManager.RemoveLife(1);
+    }
+
+    public void ShieldActivated()
+    {
+        isShielded = true;
+        shield.SetActive(true);
+        StartCoroutine(ShieldTimerCoroutine());
+    }
+
+    private IEnumerator ShieldTimerCoroutine()
+    {
+        yield return new WaitForSeconds(shieldActivationTime);
+        isShielded = false;
+        shield.SetActive(false);
     }
 }

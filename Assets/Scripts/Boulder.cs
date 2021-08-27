@@ -11,6 +11,7 @@ public class Boulder : MonoBehaviour
 
     protected GameManager gameManager;
     private int scoreValue = 10;
+    protected PlayerScript player;
 
     protected float maxSpeed = 1.0f;
     protected float minSpeed = 0.1f;
@@ -33,6 +34,7 @@ public class Boulder : MonoBehaviour
     void Awake()
     {
         gameManager = GameObject.FindGameObjectWithTag("GameController").GetComponent<GameManager>();
+        player = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerScript>();
 
         SetAngle();
         SetSpeed();
@@ -94,7 +96,7 @@ public class Boulder : MonoBehaviour
 
         if (other.CompareTag("Player"))
         {
-            gameManager.RemoveLife(1);
+            player.DamageDealt();
             DestroyBoulder();
         }
     }

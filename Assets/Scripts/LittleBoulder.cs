@@ -11,6 +11,7 @@ public class LittleBoulder : Boulder
     void Awake()
     {
         gameManager = GameObject.FindGameObjectWithTag("GameController").GetComponent<GameManager>();
+        player = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerScript>();
 
         maxSpeed = 1.5f;
         minSpeed = 0.5f;
