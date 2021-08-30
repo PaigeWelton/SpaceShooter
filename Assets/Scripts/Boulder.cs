@@ -13,7 +13,7 @@ public class Boulder : MonoBehaviour
     protected int scoreValue = 10;
     protected PlayerScript player;
 
-    protected float maxSpeed = 1.0f;
+    protected float maxSpeed = 0.5f;
     protected float minSpeed = 0.1f;
 
     protected float setSpeed;

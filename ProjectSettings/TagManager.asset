@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Boulder
   - FiredShot
+  - SpawnManager
   layers:
   - Default
   - TransparentFX

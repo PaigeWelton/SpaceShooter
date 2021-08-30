@@ -12,8 +12,8 @@ public class LittleBoulder : Boulder
         gameManager = GameObject.FindGameObjectWithTag("GameController").GetComponent<GameManager>();
         player = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerScript>();
 
-        maxSpeed = 1.5f;
-        minSpeed = 0.5f;
+        maxSpeed = 0.75f;
+        minSpeed = 0.2f;
 
         SetAngle();
         SetSpeed();

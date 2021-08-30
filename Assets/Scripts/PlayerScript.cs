@@ -27,6 +27,11 @@ public class PlayerScript : MonoBehaviour
     private float shieldActivationTime = 5.0f;
 
 
+    private void Start()
+    {
+        shield.SetActive(false);
+    }
+
     void Update()
     {
         sideInput = Input.GetAxis("Horizontal");

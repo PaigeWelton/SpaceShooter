@@ -7,8 +7,9 @@ public class GameManager : MonoBehaviour
 {
     [SerializeField] private LivesUIScript livesUI;
     [SerializeField] private TextMeshProUGUI scoreText;
+    [SerializeField] private SpawnManager spawnManager;
 
-    private int lives;
+    public int lives { get; private set; }
     private int score;
 
     void Start()
