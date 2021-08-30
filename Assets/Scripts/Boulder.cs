@@ -88,16 +88,19 @@ public class Boulder : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("FiredShot"))
+        if (gameManager.isGameActive == true)
         {
-            Destroy(other.gameObject);
-            DestroyBoulder();
-        }
+            if (other.CompareTag("FiredShot"))
+            {
+                Destroy(other.gameObject);
+                DestroyBoulder();
+            }
 
-        if (other.CompareTag("Player"))
-        {
-            player.DamageDealt();
-            DestroyBoulder();
+            if (other.CompareTag("Player"))
+            {
+                player.DamageDealt();
+                DestroyBoulder();
+            }
         }
     }
 

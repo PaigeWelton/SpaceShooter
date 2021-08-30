@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
@@ -11,6 +12,9 @@ public class GameManager : MonoBehaviour
 
     public int lives { get; private set; }
     private int score;
+
+    public bool isGameActive { get; private set; }
+    [SerializeField] private GameObject gameOverScreen;
 
     void Start()
     {
@@ -23,12 +27,16 @@ public class GameManager : MonoBehaviour
         livesUI.UpdateLives(lives);
         score = 0;
         scoreText.text = score.ToString();
+        isGameActive = true;
+        gameOverScreen.SetActive(false);
     }
 
     public void RemoveLife(int livesToRemove)
     {
         lives -= livesToRemove;
         livesUI.UpdateLives(lives);
+        if (lives <= 0)
+            GameOver();
     }
 
     public void AddLife(int livesToAdd)
@@ -43,6 +51,17 @@ public class GameManager : MonoBehaviour
     {
         score += scoreToAdd;
         scoreText.text = score.ToString();
+    }
+
+    public void RestartGame()
+    {
+        SceneManager.LoadScene(1);
+    }
+
+    private void GameOver()
+    {
+        isGameActive = false;
+        gameOverScreen.SetActive(true);
     }
 
 }

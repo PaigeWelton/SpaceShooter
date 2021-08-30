@@ -25,8 +25,11 @@ public class Powerup : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("Player"))
-            PowerupCollected();
+        if (gameManager.isGameActive == true)
+        {
+            if (other.CompareTag("Player"))
+                PowerupCollected();
+        }
     }
 
     protected virtual void PowerupCollected()

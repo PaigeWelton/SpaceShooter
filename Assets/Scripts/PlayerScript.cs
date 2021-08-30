@@ -34,25 +34,28 @@ public class PlayerScript : MonoBehaviour
 
     void Update()
     {
-        sideInput = Input.GetAxis("Horizontal");
-        forwardInput = Input.GetAxis("Vertical");
-
-        //rotate to look at mouse
-        mousePos = mainCam.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, 10.0f));
-        transform.LookAt(mousePos, Vector3.back);
-
-        // player movement
-        playerRb.AddRelativeForce(Vector3.forward * forwardInput * thrust, ForceMode.Force);
-        playerRb.AddRelativeForce(Vector3.right * sideInput * thrust, ForceMode.Force);
-
-        if (Input.GetKeyDown(KeyCode.LeftShift))
+        if (gameManager.isGameActive == true)
         {
-            playerRb.AddRelativeForce(Vector3.forward * boostSpeed, ForceMode.Impulse);
-        }
+            sideInput = Input.GetAxis("Horizontal");
+            forwardInput = Input.GetAxis("Vertical");
 
-        if (Input.GetMouseButtonDown(0))
-        {
-            FireShot();
+            //rotate to look at mouse
+            mousePos = mainCam.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, 10.0f));
+            transform.LookAt(mousePos, Vector3.back);
+
+            // player movement
+            playerRb.AddRelativeForce(Vector3.forward * forwardInput * thrust, ForceMode.Force);
+            playerRb.AddRelativeForce(Vector3.right * sideInput * thrust, ForceMode.Force);
+
+            if (Input.GetKeyDown(KeyCode.LeftShift))
+            {
+                playerRb.AddRelativeForce(Vector3.forward * boostSpeed, ForceMode.Impulse);
+            }
+
+            if (Input.GetMouseButtonDown(0))
+            {
+                FireShot();
+            }
         }
     }
 

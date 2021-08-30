@@ -45,17 +45,20 @@ public class SpawnManager : MonoBehaviour
 
     private void Update()
     {
-        asteroidCount = FindObjectsOfType<Boulder>().Length;
-        littleAsteroidCount = FindObjectsOfType<LittleBoulder>().Length;
-
-        if (asteroidCount == 0 && littleAsteroidCount == 0)
+        if (gameManager.isGameActive == true)
         {
-            waveNumber++;
-            SpawnAsteroids(waveNumber);
-        }
+            asteroidCount = FindObjectsOfType<Boulder>().Length;
+            littleAsteroidCount = FindObjectsOfType<LittleBoulder>().Length;
 
-        if (gameManager.lives < 3)
-            SpawnLife();
+            if (asteroidCount == 0 && littleAsteroidCount == 0)
+            {
+                waveNumber++;
+                SpawnAsteroids(waveNumber);
+            }
+
+            if (gameManager.lives < 3)
+                SpawnLife();
+        }
     }
 
     private Vector3 GeneratePosition()
