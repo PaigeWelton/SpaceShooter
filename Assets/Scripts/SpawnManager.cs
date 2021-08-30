@@ -8,6 +8,7 @@ public class SpawnManager : MonoBehaviour
     private float timeToNextLife = 15.0f;
     private bool isGeneratingLife = false;
     private bool isLifeOnScreen;
+    //ENCAPSULATION
     public bool IsLifeOnScreen 
     { 
         get
@@ -69,6 +70,7 @@ public class SpawnManager : MonoBehaviour
         return randomPos;
     }
 
+    //ABSTRACTION
     public void SpawnLife()
     {
         if (!isGeneratingLife && !isLifeOnScreen)

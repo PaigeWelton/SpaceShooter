@@ -26,10 +26,13 @@ public class PlayerScript : MonoBehaviour
     [SerializeField] private GameObject shield;
     private float shieldActivationTime = 5.0f;
 
+    [SerializeField] private ParticleSystem engineTrail;
+
 
     private void Start()
     {
         shield.SetActive(false);
+        engineTrail.Stop();
     }
 
     void Update()
@@ -47,10 +50,19 @@ public class PlayerScript : MonoBehaviour
             playerRb.AddRelativeForce(Vector3.forward * forwardInput * thrust, ForceMode.Force);
             playerRb.AddRelativeForce(Vector3.right * sideInput * thrust, ForceMode.Force);
 
+            if (Input.GetKeyDown(KeyCode.W))
+                engineTrail.Play();
+            else if (Input.GetKeyUp(KeyCode.W))
+                engineTrail.Stop();
+
             if (Input.GetKeyDown(KeyCode.LeftShift))
             {
                 playerRb.AddRelativeForce(Vector3.forward * boostSpeed, ForceMode.Impulse);
+                engineTrail.Play();
             }
+            if (Input.GetKeyUp(KeyCode.LeftShift))
+                engineTrail.Stop();
+
 
             if (Input.GetMouseButtonDown(0))
             {

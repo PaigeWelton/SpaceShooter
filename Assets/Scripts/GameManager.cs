@@ -10,6 +10,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] private TextMeshProUGUI scoreText;
     [SerializeField] private SpawnManager spawnManager;
 
+    //ENCAPSULATION
     public int lives { get; private set; }
     private int score;
 
@@ -31,6 +32,7 @@ public class GameManager : MonoBehaviour
         gameOverScreen.SetActive(false);
     }
 
+    //ABSTRACTION
     public void RemoveLife(int livesToRemove)
     {
         lives -= livesToRemove;

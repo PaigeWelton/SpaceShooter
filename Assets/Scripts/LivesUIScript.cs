@@ -6,6 +6,7 @@ public class LivesUIScript : MonoBehaviour
 {
     [SerializeField] private GameObject[] livesIcons;
 
+    //ABSTRACTION
     public void UpdateLives(int health)
     {
         switch (health)
