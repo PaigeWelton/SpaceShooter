@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 //INHERITANCE
-public class LittleBoulder : Boulder
+public class LittleAsteroid : Asteroid
 {
 
     // Start is called before the first frame update
@@ -32,7 +32,7 @@ public class LittleBoulder : Boulder
     }
 
     //POLYMORPHISM
-    public override void DestroyBoulder()
+    public override void DestroyAsteroid()
     {
         audioManager.PlayAsteroidDestroySFX();
         gameManager.AddScore(scoreValue);

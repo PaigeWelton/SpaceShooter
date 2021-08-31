@@ -48,8 +48,8 @@ public class SpawnManager : MonoBehaviour
     {
         if (gameManager.isGameActive == true)
         {
-            asteroidCount = FindObjectsOfType<Boulder>().Length;
-            littleAsteroidCount = FindObjectsOfType<LittleBoulder>().Length;
+            asteroidCount = FindObjectsOfType<Asteroid>().Length;
+            littleAsteroidCount = FindObjectsOfType<LittleAsteroid>().Length;
 
             if (asteroidCount == 0 && littleAsteroidCount == 0)
             {

@@ -15,8 +15,8 @@ GameObject:
   - component: {fileID: 6196286821523864488}
   - component: {fileID: 8561575781670820914}
   m_Layer: 0
-  m_Name: Boulder
-  m_TagString: Boulder
+  m_Name: Asteroid
+  m_TagString: Asteroid
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
@@ -108,7 +108,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cd6409034ab53b7499f82e533468639e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  littleBoulder: {fileID: 6062755256691881170, guid: 20ff20d8dc787dc4dbce11373c2fe2c0, type: 3}
+  littleAsteroid: {fileID: 6062755256691881170, guid: 20ff20d8dc787dc4dbce11373c2fe2c0, type: 3}
 --- !u!135 &8561575781670820914
 SphereCollider:
   m_ObjectHideFlags: 0

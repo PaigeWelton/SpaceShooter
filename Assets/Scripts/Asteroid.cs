@@ -3,11 +3,11 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UIElements;
 
-public class Boulder : MonoBehaviour
+public class Asteroid : MonoBehaviour
 {
-    [SerializeField] private GameObject littleBoulder;
-    private int maxLittleBoulders = 5;
-    private int minLittleBoulders = 1;
+    [SerializeField] private GameObject littleAsteroid;
+    private int maxLittleAsteroids = 5;
+    private int minLittleAsteroids = 1;
 
     protected GameManager gameManager;
     protected int scoreValue = 10;
@@ -95,32 +95,32 @@ public class Boulder : MonoBehaviour
             if (other.CompareTag("FiredShot"))
             {
                 Destroy(other.gameObject);
-                DestroyBoulder();
+                DestroyAsteroid();
             }
 
             if (other.CompareTag("Player"))
             {
                 player.DamageDealt();
-                DestroyBoulder();
+                DestroyAsteroid();
             }
         }
     }
 
-    public virtual void DestroyBoulder()
+    public virtual void DestroyAsteroid()
     {
         audioManager.PlayAsteroidDestroySFX();
         gameManager.AddScore(scoreValue);
-        CreateLittleBoulders();
+        CreateLittleAsteroids();
         Destroy(gameObject);
     }
 
-    protected virtual void CreateLittleBoulders()
+    protected virtual void CreateLittleAsteroids()
     {
-        int bouldersToCreate = Random.Range(minLittleBoulders, maxLittleBoulders);
+        int asteroidsToCreate = Random.Range(minLittleAsteroids, maxLittleAsteroids);
 
-        for (int i = 0; i < bouldersToCreate; i++)
+        for (int i = 0; i < asteroidsToCreate; i++)
         {
-            Instantiate(littleBoulder, transform.position, littleBoulder.transform.rotation);
+            Instantiate(littleAsteroid, transform.position, littleAsteroid.transform.rotation);
         }
     }
 }
