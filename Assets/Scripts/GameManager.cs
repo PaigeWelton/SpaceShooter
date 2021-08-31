@@ -9,6 +9,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] private LivesUIScript livesUI;
     [SerializeField] private TextMeshProUGUI scoreText;
     [SerializeField] private SpawnManager spawnManager;
+    [SerializeField] private SettingsDialog settingsDialog;
 
     //ENCAPSULATION
     public int lives { get; private set; }
@@ -64,6 +65,12 @@ public class GameManager : MonoBehaviour
     {
         isGameActive = false;
         gameOverScreen.SetActive(true);
+    }
+
+    public void PauseGame()
+    {
+        Time.timeScale = 0;
+        Instantiate(settingsDialog);
     }
 
 }

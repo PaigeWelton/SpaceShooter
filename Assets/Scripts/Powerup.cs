@@ -12,6 +12,7 @@ public class Powerup : MonoBehaviour
     }
     public PowerupType powerup;
 
+    private AudioManager audioManager;
     private GameManager gameManager;
     private PlayerScript player;
     private SpawnManager spawnManager;
@@ -21,6 +22,7 @@ public class Powerup : MonoBehaviour
         gameManager = GameObject.FindGameObjectWithTag("GameController").GetComponent<GameManager>();
         player = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerScript>();
         spawnManager = GameObject.FindGameObjectWithTag("SpawnManager").GetComponent<SpawnManager>();
+        audioManager = GameObject.FindGameObjectWithTag("AudioManager").GetComponent<AudioManager>();
     }
 
     private void OnTriggerEnter(Collider other)
@@ -34,6 +36,7 @@ public class Powerup : MonoBehaviour
 
     protected virtual void PowerupCollected()
     {
+        audioManager.PlayPowerupPickupSFX();
         Destroy(gameObject);
 
         if (powerup == PowerupType.AddLives)

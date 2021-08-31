@@ -12,6 +12,7 @@ public class Boulder : MonoBehaviour
     protected GameManager gameManager;
     protected int scoreValue = 10;
     protected PlayerScript player;
+    protected AudioManager audioManager;
 
     protected float maxSpeed = 0.5f;
     protected float minSpeed = 0.1f;
@@ -35,6 +36,7 @@ public class Boulder : MonoBehaviour
     {
         gameManager = GameObject.FindGameObjectWithTag("GameController").GetComponent<GameManager>();
         player = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerScript>();
+        audioManager = GameObject.FindGameObjectWithTag("AudioManager").GetComponent<AudioManager>();
 
         SetAngle();
         SetSpeed();
@@ -106,6 +108,7 @@ public class Boulder : MonoBehaviour
 
     public virtual void DestroyBoulder()
     {
+        audioManager.PlayAsteroidDestroySFX();
         gameManager.AddScore(scoreValue);
         CreateLittleBoulders();
         Destroy(gameObject);

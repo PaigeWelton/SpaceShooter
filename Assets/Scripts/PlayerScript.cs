@@ -28,6 +28,8 @@ public class PlayerScript : MonoBehaviour
 
     [SerializeField] private ParticleSystem engineTrail;
 
+    [SerializeField] private AudioManager audioManager;
+
 
     private void Start()
     {
@@ -73,6 +75,7 @@ public class PlayerScript : MonoBehaviour
 
     private void FireShot()
     {
+        audioManager.PlayPlayerShotSFX();
         Vector3 relativePos = mousePos - transform.position;
         Quaternion fireRotation = Quaternion.LookRotation(relativePos, Vector3.right);
         Instantiate(bullet, bulletAnchor.transform.position, fireRotation);
@@ -82,6 +85,7 @@ public class PlayerScript : MonoBehaviour
     {
         if (!isShielded)
             gameManager.RemoveLife(1);
+        PlayHitSound();
     }
 
     public void ShieldActivated()
@@ -96,5 +100,13 @@ public class PlayerScript : MonoBehaviour
         yield return new WaitForSeconds(shieldActivationTime);
         isShielded = false;
         shield.SetActive(false);
+    }
+
+    private void PlayHitSound()
+    {
+        if (gameManager.lives == 0)
+            audioManager.PlayPlayerDestroySFX();
+        else
+            audioManager.PlayPlayerHitSFX();
     }
 }

@@ -8,6 +8,8 @@ using UnityEditor;
 
 public class TitleScreenUIHandler : MonoBehaviour
 {
+    [SerializeField] private SettingsDialog settingsDialog;
+
     public void StartNew()
     {
         SceneManager.LoadScene(1);
@@ -20,5 +22,10 @@ public class TitleScreenUIHandler : MonoBehaviour
 #else
         Application.Quit();
 #endif
+    }
+
+    public void OpenSettings()
+    {
+        Instantiate(settingsDialog);
     }
 }

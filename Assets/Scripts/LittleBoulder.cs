@@ -11,6 +11,7 @@ public class LittleBoulder : Boulder
     {
         gameManager = GameObject.FindGameObjectWithTag("GameController").GetComponent<GameManager>();
         player = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerScript>();
+        audioManager = GameObject.FindGameObjectWithTag("AudioManager").GetComponent<AudioManager>();
 
         maxSpeed = 0.75f;
         minSpeed = 0.2f;
@@ -33,6 +34,7 @@ public class LittleBoulder : Boulder
     //POLYMORPHISM
     public override void DestroyBoulder()
     {
+        audioManager.PlayAsteroidDestroySFX();
         gameManager.AddScore(scoreValue);
         Destroy(gameObject);
     }
