@@ -45,8 +45,10 @@ public class DataManager : MonoBehaviour
         if (File.Exists(path))
         {
             string json = File.ReadAllText(path);
-            MusicSetting = (float)JsonConvert.DeserializeObject(json, typeof (float));
+            MusicSetting = (float)JsonConvert.DeserializeObject(json, typeof(float));
         }
+        else
+            MusicSetting = 1.0f;
     }
 
     public void SaveSFXSettings()
@@ -66,5 +68,7 @@ public class DataManager : MonoBehaviour
             string json = File.ReadAllText(path);
             SFXSetting = (float)JsonConvert.DeserializeObject(json, typeof(float));
         }
+        else
+            SFXSetting = 1.0f;
     }
 }

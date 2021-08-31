@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class SpawnManager : MonoBehaviour
 {
+    [SerializeField] private PlayerScript player;
     [SerializeField] private GameObject lifePowerup;
     private float timeToNextLife = 15.0f;
     private bool isGeneratingLife = false;

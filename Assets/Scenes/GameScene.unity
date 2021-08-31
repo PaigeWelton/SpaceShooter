@@ -342,6 +342,17 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0ab74bdb908715b4fb4983fdd884e97d, type: 3}
+--- !u!114 &284478395 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1288892484, guid: 236d3fb0d5d43b94d9478146b3c3bc60, type: 3}
+  m_PrefabInstance: {fileID: 7739945200481442629}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4693f0a6f7ddbb948af3d8f672e9a4ac, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &414304915
 GameObject:
   m_ObjectHideFlags: 0
@@ -1222,6 +1233,7 @@ MonoBehaviour:
   scoreText: {fileID: 414304917}
   spawnManager: {fileID: 528910780}
   settingsDialog: {fileID: 5817760994416935987, guid: 091df5f483d6f7645bc6ee093207735b, type: 3}
+  player: {fileID: 284478395}
   gameOverScreen: {fileID: 1774839637}
 --- !u!4 &794383464
 Transform:
@@ -2427,6 +2439,10 @@ PrefabInstance:
     - target: {fileID: 619389344007089928, guid: 236d3fb0d5d43b94d9478146b3c3bc60, type: 3}
       propertyPath: m_Name
       value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 619389344007089928, guid: 236d3fb0d5d43b94d9478146b3c3bc60, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3026071684725669922, guid: 236d3fb0d5d43b94d9478146b3c3bc60, type: 3}
       propertyPath: m_RootOrder

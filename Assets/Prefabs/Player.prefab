@@ -166,6 +166,8 @@ MonoBehaviour:
   gameManager: {fileID: 0}
   shield: {fileID: 1931771227}
   engineTrail: {fileID: 4236086684601243331}
+  destroyParticles: {fileID: 3381209576462560190, guid: fc6cfe385e990da46904f814bf9904a3, type: 3}
+  audioManager: {fileID: 0}
 --- !u!114 &6126741110964739054
 MonoBehaviour:
   m_ObjectHideFlags: 0

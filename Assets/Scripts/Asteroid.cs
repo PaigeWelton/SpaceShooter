@@ -9,6 +9,9 @@ public class Asteroid : MonoBehaviour
     private int maxLittleAsteroids = 5;
     private int minLittleAsteroids = 1;
 
+    [SerializeField]
+    protected GameObject destroyParticles;
+
     protected GameManager gameManager;
     protected int scoreValue = 10;
     protected PlayerScript player;
@@ -108,6 +111,8 @@ public class Asteroid : MonoBehaviour
 
     public virtual void DestroyAsteroid()
     {
+        GameObject particles = Instantiate(destroyParticles, transform.position, destroyParticles.transform.rotation);
+        particles.transform.localScale = Vector3.one;
         audioManager.PlayAsteroidDestroySFX();
         gameManager.AddScore(scoreValue);
         CreateLittleAsteroids();

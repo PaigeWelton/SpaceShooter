@@ -109,6 +109,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   littleAsteroid: {fileID: 6062755256691881170, guid: 20ff20d8dc787dc4dbce11373c2fe2c0, type: 3}
+  destroyParticles: {fileID: 3381209576462560190, guid: 720475968e9aa9741b1249377b5c08bc, type: 3}
 --- !u!135 &8561575781670820914
 SphereCollider:
   m_ObjectHideFlags: 0

@@ -1,6 +1,5 @@
 using System.Collections;
 using System.Collections.Generic;
-using TreeEditor;
 using UnityEngine;
 
 
@@ -27,6 +26,7 @@ public class PlayerScript : MonoBehaviour
     private float shieldActivationTime = 5.0f;
 
     [SerializeField] private ParticleSystem engineTrail;
+    [SerializeField] private GameObject destroyParticles;
 
     [SerializeField] private AudioManager audioManager;
 
@@ -108,5 +108,11 @@ public class PlayerScript : MonoBehaviour
             audioManager.PlayPlayerDestroySFX();
         else
             audioManager.PlayPlayerHitSFX();
+    }
+
+    public void DestroyShip()
+    {
+        GameObject particles = Instantiate(destroyParticles, transform.position, destroyParticles.transform.rotation);
+        gameObject.SetActive(false);
     }
 }

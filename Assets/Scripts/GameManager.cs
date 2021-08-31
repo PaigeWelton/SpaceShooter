@@ -10,6 +10,9 @@ public class GameManager : MonoBehaviour
     [SerializeField] private TextMeshProUGUI scoreText;
     [SerializeField] private SpawnManager spawnManager;
     [SerializeField] private SettingsDialog settingsDialog;
+    [SerializeField] private PlayerScript player;
+
+    private float waitForDeath = 2.0f;
 
     //ENCAPSULATION
     public int lives { get; private set; }
@@ -64,13 +67,20 @@ public class GameManager : MonoBehaviour
     private void GameOver()
     {
         isGameActive = false;
-        gameOverScreen.SetActive(true);
+        player.DestroyShip();
+        StartCoroutine(WaitForDeath());
     }
 
     public void PauseGame()
     {
         Time.timeScale = 0;
         Instantiate(settingsDialog);
+    }
+
+    private IEnumerator WaitForDeath()
+    {
+        yield return new WaitForSeconds(waitForDeath);
+        gameOverScreen.SetActive(true);
     }
 
 }

@@ -34,6 +34,8 @@ public class LittleAsteroid : Asteroid
     //POLYMORPHISM
     public override void DestroyAsteroid()
     {
+        GameObject particles = Instantiate(destroyParticles, transform.position, destroyParticles.transform.rotation);
+        particles.transform.localScale = new Vector3(0.5f, 0.5f, 0.5f);
         audioManager.PlayAsteroidDestroySFX();
         gameManager.AddScore(scoreValue);
         Destroy(gameObject);
