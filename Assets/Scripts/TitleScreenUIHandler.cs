@@ -9,6 +9,7 @@ using UnityEditor;
 public class TitleScreenUIHandler : MonoBehaviour
 {
     [SerializeField] private SettingsDialog settingsDialog;
+    [SerializeField] private GameObject howToPlayDialog;
 
     public void StartNew()
     {
@@ -27,5 +28,10 @@ public class TitleScreenUIHandler : MonoBehaviour
     public void OpenSettings()
     {
         Instantiate(settingsDialog);
+    }
+
+    public void OpenHowToPlay()
+    {
+        Instantiate(howToPlayDialog);
     }
 }
