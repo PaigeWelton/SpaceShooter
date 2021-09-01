@@ -49,7 +49,7 @@ public class PlayerScript : MonoBehaviour
             transform.LookAt(mousePos, Vector3.back);
 
             // player movement
-            playerRb.AddRelativeForce(Vector3.forward * forwardInput * thrust, ForceMode.Force);
+            playerRb.AddRelativeForce(Vector3.forward * forwardInput * thrust);
             playerRb.AddRelativeForce(Vector3.right * sideInput * thrust, ForceMode.Force);
 
             if (Input.GetKeyDown(KeyCode.W))

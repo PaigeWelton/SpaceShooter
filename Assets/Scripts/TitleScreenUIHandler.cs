@@ -9,7 +9,9 @@ using UnityEditor;
 public class TitleScreenUIHandler : MonoBehaviour
 {
     [SerializeField] private SettingsDialog settingsDialog;
-    [SerializeField] private GameObject howToPlayDialog;
+    [SerializeField] private HowToPlayDialog howToPlayDialog;
+
+    private DialogBase dialog;
 
     public void StartNew()
     {
@@ -27,11 +29,13 @@ public class TitleScreenUIHandler : MonoBehaviour
 
     public void OpenSettings()
     {
-        Instantiate(settingsDialog);
+        DialogBase dialog = Instantiate(settingsDialog);
+        dialog.OpenDialog();
     }
 
     public void OpenHowToPlay()
     {
-        Instantiate(howToPlayDialog);
+        DialogBase dialog = Instantiate(howToPlayDialog);
+        dialog.OpenDialog();
     }
 }

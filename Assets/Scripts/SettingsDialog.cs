@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class SettingsDialog : MonoBehaviour
+public class SettingsDialog : DialogBase
 {
     [SerializeField] private Slider musicSlider;
     [SerializeField] private Slider sfxSlider;
@@ -64,9 +64,9 @@ public class SettingsDialog : MonoBehaviour
         DataManager.Instance.SaveSFXSettings();
     }
 
-    public void CloseDialog()
+    public override void CloseDialog()
     {
+        base.CloseDialog();
         Time.timeScale = 1;
-        Destroy(gameObject);
     }
 }

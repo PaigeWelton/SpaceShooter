@@ -74,7 +74,8 @@ public class GameManager : MonoBehaviour
     public void PauseGame()
     {
         Time.timeScale = 0;
-        Instantiate(settingsDialog);
+        DialogBase dialog = Instantiate(settingsDialog);
+        dialog.OpenDialog();
     }
 
     private IEnumerator WaitForDeath()

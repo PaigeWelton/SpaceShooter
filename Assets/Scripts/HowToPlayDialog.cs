@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class HowToPlayDialog : MonoBehaviour
+public class HowToPlayDialog : DialogBase
 {
     [SerializeField] private GameObject controlsPage;
     [SerializeField] private GameObject infoPage;
@@ -36,8 +36,4 @@ public class HowToPlayDialog : MonoBehaviour
         infoButton.interactable = false;
     }
 
-    public void CloseDialog()
-    {
-        Destroy(gameObject);
-    }
 }

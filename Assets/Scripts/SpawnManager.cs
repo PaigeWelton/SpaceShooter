@@ -43,6 +43,7 @@ public class SpawnManager : MonoBehaviour
     {
         InvokeRepeating("SpawnPowerup", 30.0f, timeToNextPowerup);
         SpawnAsteroids(waveNumber);
+        player = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerScript>();
     }
 
     private void Update()
@@ -68,6 +69,17 @@ public class SpawnManager : MonoBehaviour
         float spawnPosX = Random.Range(-spawnRangeX, spawnRangeX);
         float spawnPosY = Random.Range(-spawnRangeY, spawnRangeY);
         Vector3 randomPos = new Vector3(spawnPosX, spawnPosY, 0);
+        Collider[] hitColliders = Physics.OverlapSphere(randomPos, 3.0f);
+        if (hitColliders != null)
+        {
+            foreach (Collider hit in hitColliders)
+            {
+                if (hit.CompareTag("Player"))
+                {
+                    GeneratePosition();
+                }
+            }
+        }
         return randomPos;
     }
 

@@ -617,6 +617,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 441d39f9ba0070644ad58eac54cfe1ba, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  player: {fileID: 0}
   lifePowerup: {fileID: 2795540853058767299, guid: 45725b2c43fba4a4aac7e2eec4be46b3, type: 3}
   powerupPrefab: {fileID: 7388281140993854782, guid: a356b4670aeac0b43bbff8e0b5478b9f, type: 3}
   asteroidPrefab: {fileID: 6062755256691881170, guid: 99954e686f08af9408951354361283fa, type: 3}

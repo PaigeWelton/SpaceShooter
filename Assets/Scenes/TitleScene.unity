@@ -963,7 +963,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   settingsDialog: {fileID: 5817760994416935987, guid: 091df5f483d6f7645bc6ee093207735b, type: 3}
-  howToPlayDialog: {fileID: 1537816014893979175, guid: a9bd65ec1de996d409d311cb67ef7d18, type: 3}
+  howToPlayDialog: {fileID: 3040930487502642609, guid: a9bd65ec1de996d409d311cb67ef7d18, type: 3}
 --- !u!1001 &1712131487
 PrefabInstance:
   m_ObjectHideFlags: 0
