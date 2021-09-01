@@ -39,7 +39,7 @@ public class PlayerScript : MonoBehaviour
 
     void Update()
     {
-        if (gameManager.isGameActive == true)
+        if (gameManager.isGameActive == true && gameManager.isPaused == false)
         {
             sideInput = Input.GetAxis("Horizontal");
             forwardInput = Input.GetAxis("Vertical");

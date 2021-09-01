@@ -33,7 +33,7 @@ public class DialogBase : MonoBehaviour
 
     private IEnumerator DestroyDialog()
     {
-        yield return new WaitForSeconds(timeToDestroy);
+        yield return new WaitForSecondsRealtime(timeToDestroy);
         Destroy(gameObject);
     }
 }

@@ -64,9 +64,4 @@ public class SettingsDialog : DialogBase
         DataManager.Instance.SaveSFXSettings();
     }
 
-    public override void CloseDialog()
-    {
-        base.CloseDialog();
-        Time.timeScale = 1;
-    }
 }

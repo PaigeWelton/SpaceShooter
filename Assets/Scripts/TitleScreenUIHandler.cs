@@ -11,8 +11,6 @@ public class TitleScreenUIHandler : MonoBehaviour
     [SerializeField] private SettingsDialog settingsDialog;
     [SerializeField] private HowToPlayDialog howToPlayDialog;
 
-    private DialogBase dialog;
-
     public void StartNew()
     {
         SceneManager.LoadScene(1);

@@ -9,10 +9,12 @@ public class GameManager : MonoBehaviour
     [SerializeField] private LivesUIScript livesUI;
     [SerializeField] private TextMeshProUGUI scoreText;
     [SerializeField] private SpawnManager spawnManager;
-    [SerializeField] private SettingsDialog settingsDialog;
+    [SerializeField] private GameObject pauseMenu;
     [SerializeField] private PlayerScript player;
 
     private float waitForDeath = 2.0f;
+
+    public bool isPaused { get; private set; }
 
     //ENCAPSULATION
     public int lives { get; private set; }
@@ -34,6 +36,8 @@ public class GameManager : MonoBehaviour
         scoreText.text = score.ToString();
         isGameActive = true;
         gameOverScreen.SetActive(false);
+        pauseMenu.SetActive(false);
+        isPaused = false;
     }
 
     //ABSTRACTION
@@ -74,8 +78,15 @@ public class GameManager : MonoBehaviour
     public void PauseGame()
     {
         Time.timeScale = 0;
-        DialogBase dialog = Instantiate(settingsDialog);
-        dialog.OpenDialog();
+        pauseMenu.SetActive(true);
+        isPaused = true;
+    }
+
+    public void UnpauseGame()
+    {
+        isPaused = false;
+        pauseMenu.SetActive(false);
+        Time.timeScale = 1;
     }
 
     private IEnumerator WaitForDeath()
