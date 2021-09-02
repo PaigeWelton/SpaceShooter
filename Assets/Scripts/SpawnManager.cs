@@ -6,7 +6,7 @@ public class SpawnManager : MonoBehaviour
 {
     [SerializeField] private PlayerScript player;
     [SerializeField] private GameObject lifePowerup;
-    private float timeToNextLife = 15.0f;
+    private float timeToNextLife = 20.0f;
     private bool isGeneratingLife = false;
     private bool isLifeOnScreen;
     //ENCAPSULATION
@@ -26,7 +26,7 @@ public class SpawnManager : MonoBehaviour
     }
 
     [SerializeField] private GameObject powerupPrefab;
-    private float timeToNextPowerup = 30.0f;
+    private float timeToNextPowerup = 15.0f;
 
     [SerializeField] private GameObject asteroidPrefab;
     private int waveNumber = 1;
@@ -41,7 +41,7 @@ public class SpawnManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        InvokeRepeating("SpawnPowerup", 30.0f, timeToNextPowerup);
+        StartCoroutine(WaitToNextPowerup());
         SpawnAsteroids(waveNumber);
         player = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerScript>();
     }
@@ -104,7 +104,17 @@ public class SpawnManager : MonoBehaviour
 
     public void SpawnPowerup()
     {
-        Instantiate(powerupPrefab, GeneratePosition(), powerupPrefab.transform.rotation);
+        if (gameManager.isGameActive == true)
+        {
+            Instantiate(powerupPrefab, GeneratePosition(), powerupPrefab.transform.rotation);
+            StartCoroutine(WaitToNextPowerup());
+        }
+    }
+
+    private IEnumerator WaitToNextPowerup()
+    {
+        yield return new WaitForSeconds(timeToNextPowerup);
+        SpawnPowerup();
     }
 
     private void SpawnAsteroids(int asteroidsToSpawn)

@@ -52,11 +52,13 @@ public class PlayerScript : MonoBehaviour
             playerRb.AddRelativeForce(Vector3.forward * forwardInput * thrust);
             playerRb.AddRelativeForce(Vector3.right * sideInput * thrust, ForceMode.Force);
 
+            //handle particle trail on ship
             if (Input.GetKeyDown(KeyCode.W))
                 engineTrail.Play();
             else if (Input.GetKeyUp(KeyCode.W))
                 engineTrail.Stop();
 
+            //boost speed
             if (Input.GetKeyDown(KeyCode.LeftShift))
             {
                 playerRb.AddRelativeForce(Vector3.forward * boostSpeed, ForceMode.Impulse);
@@ -65,7 +67,7 @@ public class PlayerScript : MonoBehaviour
             if (Input.GetKeyUp(KeyCode.LeftShift))
                 engineTrail.Stop();
 
-
+            //fire a shot
             if (Input.GetMouseButtonDown(0))
             {
                 FireShot();
